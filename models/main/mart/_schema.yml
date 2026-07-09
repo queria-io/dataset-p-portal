@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: procurement_award
+    description: |
+      政府電子調達システム（GEPS）に登録された落札実績。中央省庁等の調達案件ごとに、
+      落札決定日・落札価格・入札方式・落札事業者（商号又は名称・法人番号）を収録する。
+      府省コード・入札方式コードには名称列を併記する。法人番号（corporate_number）で
+      法人番号公表サイトや gBizINFO のデータと結合でき、企業別の受注分析に利用できる。
+      年度別の全件データファイルを結合したもので、粒度は1行＝1件の落札実績。
+      同一調達案件で複数事業者が落札する方式（複数落札）では調達案件番号は一意にならない。
+      出典: 調達ポータル（https://www.p-portal.go.jp/）。
+    access: public
+    config:
+      meta:
+        title: "落札実績（政府電子調達 GEPS）"
+        published: true
+        source_url: "https://www.p-portal.go.jp/pps-web-biz/UAB02/OAB0201"
+        tags: ["調達ポータル", "政府調達", "落札実績", "入札", "法人番号"]
+    columns:
+      - name: procurement_item_no
+        meta:
+          title: 調達案件番号
+      - name: procurement_item_name
+        meta:
+          title: 調達案件名称
+      - name: award_date
+        meta:
+          title: 落札決定日
+      - name: fiscal_year
+        meta:
+          title: 会計年度（落札決定日基準・4月始まり）
+      - name: award_price
+        meta:
+          title: 落札価格（円）
+      - name: ministry_code
+        meta:
+          title: 府省コード
+      - name: ministry_name
+        meta:
+          title: 府省名称
+      - name: bidding_method_code
+        meta:
+          title: 入札方式コード
+      - name: bidding_method_name
+        meta:
+          title: 入札方式名称
+      - name: trade_name
+        meta:
+          title: 商号又は名称（落札事業者）
+      - name: corporate_number
+        meta:
+          title: 法人番号

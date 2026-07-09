@@ -1,0 +1,19 @@
+name: "p_portal"
+version: "1.0.0"
+
+profile: "p_portal"
+
+model-paths: ["models"]
+macro-paths: ["macros", "shared/macros"]
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  p_portal:
+    +database: p_portal
+    main:
+      raw:
+        +materialized: table
+      stg:
+        +materialized: view
+      mart:
+        +materialized: view

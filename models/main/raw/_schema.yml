@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: raw_procurement_award
+    description: 落札実績オープンデータ（全件データ・全年度結合）の生データ
+    columns:
+      - name: procurement_item_no
+        description: 調達案件番号
+      - name: procurement_item_name
+        description: 調達案件名称
+      - name: award_date
+        description: 落札決定日（YYYY-MM-DD）
+      - name: award_price
+        description: 落札価格
+      - name: ministry_code
+        description: 府省コード
+      - name: bidding_method_code
+        description: 入札方式コード
+      - name: trade_name
+        description: 商号又は名称（落札事業者）
+      - name: corporate_number
+        description: 法人番号（欠落あり）

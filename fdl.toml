@@ -1,0 +1,27 @@
+name = "p_portal"
+command = "python main.py"
+
+[targets.default]
+url = "s3://${FDL_S3_BUCKET}"
+public_url = "https://data.queria.io"
+s3_endpoint = "${FDL_S3_ENDPOINT}"
+s3_access_key_id = "${FDL_S3_ACCESS_KEY_ID}"
+s3_secret_access_key = "${FDL_S3_SECRET_ACCESS_KEY}"
+
+[targets.local]
+url = "~/.local/share/fdl"
+public_url = "http://localhost:4001"
+
+[meta]
+license = "政府標準利用規約（第2.0版）"
+license_url = "https://www.p-portal.go.jp/pps-web-biz/resources/app/html/sitepolicy.html"
+title = "調達ポータル 落札実績"
+description = """政府電子調達システム（GEPS）に登録された落札実績オープンデータ。
+中央省庁等の調達案件ごとの落札決定日・落札価格・入札方式・落札事業者（法人番号付き）を収録する。"""
+cover = "🏛️"
+tags = ['調達ポータル', '政府調達', '落札実績', '入札', '法人番号']
+repository_url = "https://github.com/flo8s/dataset-p-portal"
+schedule = "monthly"
+
+[meta.schemas]
+main.title = "メイン"
