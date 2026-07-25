@@ -1,0 +1,52 @@
+spec_version: "0.1"
+name: p_portal
+title: 調達ポータル 落札実績
+description: |-
+  政府電子調達システム（GEPS）に登録された落札実績オープンデータ。
+  中央省庁等の調達案件ごとの落札決定日・落札価格・入札方式・落札事業者（法人番号付き）を収録する。
+keywords:
+  - 調達ポータル
+  - 政府調達
+  - 落札実績
+  - 入札
+  - 法人番号
+homepage: https://github.com/queria-io/dataset-p-portal
+language: ja
+
+licenses:
+  - JP-GOV-STD-2.0
+
+sources:
+  - title: 調達ポータル 落札情報（全件データファイル）
+    path: https://www.p-portal.go.jp/pps-web-biz/UAB02/OAB0201
+
+contributors:
+  - title: デジタル庁
+    path: https://www.digital.go.jp/
+    roles: [rightsHolder]
+
+temporal_coverage: { start: "2017-04-01", end: null }
+spatial_coverage: [JP]
+update_frequency: monthly
+cover: 🏛️
+
+ai_context:
+  instructions: |
+    府省別・事業者別に政府調達を分析するのに使う。1行が1件の落札実績で、
+    平成29年度（2017年度）以降を収録する。毎月のビルドで最新化されるので、
+    収録期間の終わりはビルド時点まで伸びる（end を書いていないのはそのため）。
+    落札事業者の法人番号（corporate_number）で houjin_bangou や gbizinfo と結合できる。
+    ただし個人事業主など法人番号を持たない落札者があり、27万件のうち約2500件で欠落する。
+    同一の調達案件で複数事業者が落札する方式があるため procurement_item_no は一意ではない。
+    オープンカウンタ（少額）案件のうち個人事業主は元データに含まれない。
+    落札価格は円単位で、契約変更後の金額ではなく落札時点の金額。
+    地方自治体の調達は含まない（中央省庁等のみ）。
+  synonyms: [政府調達, 入札, 落札, GEPS, 調達ポータル]
+  examples:
+    - 府省別の落札金額を年度ごとに出したい
+    - ある法人が受注した案件を一覧したい
+    - 随意契約の割合は年度でどう変わった？
+
+schemas:
+  - name: main
+    title: メイン
