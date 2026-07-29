@@ -15,8 +15,8 @@ from pportal import download_and_parse
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger("pipelines")
 
-FDL_DIR = Path(".fdl")
-CSV_PATH = FDL_DIR / "p_portal_awards.csv"
+WORK_DIR = Path(".queria")
+CSV_PATH = WORK_DIR / "p_portal_awards.csv"
 
 
 def dbt_build() -> None:
@@ -28,7 +28,7 @@ def dbt_build() -> None:
 
 
 def main() -> None:
-    FDL_DIR.mkdir(exist_ok=True)
+    WORK_DIR.mkdir(exist_ok=True)
 
     # 取得上限は当年度（会計年度・4月始まり）。新年度が始まれば自動的に追随する。
     # 未提供年度は skip されるため、年度初めの空白期間も安全に処理できる。
