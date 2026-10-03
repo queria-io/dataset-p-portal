@@ -46,3 +46,4 @@ fields:
     title: 商号又は名称（落札事業者）
   - name: corporate_number
     title: 法人番号
+    semantic: { role: entity, name: corporate_number }
