@@ -38,4 +38,5 @@ fields:
     title: 商号又は名称（落札事業者）
   - name: corporate_number
     title: 法人番号
+    description: 落札事業者の法人番号（13 桁）。個人事業主などは NULL
     semantic: { role: entity, name: corporate_number }
