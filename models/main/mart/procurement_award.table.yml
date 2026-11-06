@@ -1,19 +1,11 @@
 schema: main
 name: procurement_award
 title: 落札実績（政府電子調達 GEPS）
-description: '政府電子調達システム（GEPS）に登録された落札実績。中央省庁等の調達案件ごとに、
+description: |-
+  中央省庁等の落札実績です。1 行が 1 件の落札で、落札決定日・落札価格・府省・入札方式・落札事業者（商号と法人番号）を持ちます。2017 年度以降です。
 
-  落札決定日・落札価格・入札方式・落札事業者（商号又は名称・法人番号）を収録する。
-
-  府省コード・入札方式コードには名称列を併記する。法人番号（corporate_number）で
-
-  法人番号公表サイトや gBizINFO のデータと結合でき、企業別の受注分析に利用できる。
-
-  年度別の全件データファイルを結合したもので、粒度は1行＝1件の落札実績。
-
-  同一調達案件で複数事業者が落札する方式（複数落札）では調達案件番号は一意にならない。
-
-  出典: 調達ポータル（https://www.p-portal.go.jp/）。'
+  - 複数の事業者が落札する案件があるため、procurement_item_no は一意ではありません
+  - 個人事業主は corporate_number が NULL で、オープンカウンタ（少額）の個人事業主は含みません
 keywords:
   - 調達ポータル
   - 政府調達
@@ -46,4 +38,5 @@ fields:
     title: 商号又は名称（落札事業者）
   - name: corporate_number
     title: 法人番号
+    description: 落札事業者の法人番号（13 桁）。個人事業主などは NULL
     semantic: { role: entity, name: corporate_number }
