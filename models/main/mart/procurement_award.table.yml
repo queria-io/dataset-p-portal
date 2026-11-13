@@ -12,7 +12,6 @@ keywords:
   - 落札実績
   - 入札
   - 法人番号
-published: true
 sources:
   - path: https://www.p-portal.go.jp/pps-web-biz/UAB02/OAB0201
 fields:
@@ -39,4 +38,4 @@ fields:
   - name: corporate_number
     title: 法人番号
     description: 落札事業者の法人番号（13 桁）。個人事業主などは NULL
-    semantic: { role: entity, name: corporate_number }
+    annotations: { queria: { semantic: { role: entity, name: corporate_number } } }
