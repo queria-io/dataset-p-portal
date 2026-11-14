@@ -16,4 +16,4 @@ models:
       stg:
         +materialized: view
       mart:
-        +materialized: view
+        +materialized: table
