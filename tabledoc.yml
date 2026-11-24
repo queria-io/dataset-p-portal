@@ -1,0 +1,42 @@
+$schema: https://tabledoc.queria.io/schemas/dataset/v1.json
+name: p_portal
+title: 調達ポータル 落札実績
+description: |-
+  政府電子調達システム（GEPS）に登録された中央省庁等の落札実績です。調達案件ごとの落札決定日・落札価格・入札方式・落札事業者を持ち、法人番号で houjin_bangou・gbizinfo と結合できます。
+
+  出典：調達ポータル（https://www.p-portal.go.jp/）の落札実績オープンデータを加工して作成。
+image: cover.png
+topics:
+  - 調達ポータル
+  - 政府調達
+  - 落札実績
+  - 入札
+  - 法人番号
+synonyms:
+  - 政府調達
+  - 入札
+  - 落札
+  - GEPS
+  - 調達ポータル
+language: ja
+licenses:
+  - JP-GOV-STD-2.0
+sources:
+  - id: OAB0201
+    title: 調達ポータル 落札情報（全件データファイル）
+    url: https://www.p-portal.go.jp/pps-web-biz/UAB02/OAB0201
+contributors:
+  - id: digital
+    title: デジタル庁
+    url: https://www.digital.go.jp/
+    roles:
+      - rightsHolder
+temporal_coverage:
+  start: '2017-04-01'
+  end:
+spatial_coverage:
+  - JP
+update_frequency: monthly
+schemas:
+  - name: main
+    title: メイン
