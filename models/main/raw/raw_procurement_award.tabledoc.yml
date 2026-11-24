@@ -1,8 +1,7 @@
-schema: main
-name: raw_procurement_award
+$schema: https://tabledoc.queria.io/schemas/table/v1.json
 description: 落札実績オープンデータ（全件データ・全年度結合）の生データ
-annotations: { queria: { published: false } }
-fields:
+hidden: true
+columns:
   - name: procurement_item_no
     description: 調達案件番号
   - name: procurement_item_name

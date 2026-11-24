@@ -1,20 +1,19 @@
-schema: main
-name: procurement_award
+$schema: https://tabledoc.queria.io/schemas/table/v1.json
 title: 落札実績（政府電子調達 GEPS）
 description: |-
   中央省庁等の落札実績です。1 行が 1 件の落札で、落札決定日・落札価格・府省・入札方式・落札事業者（商号と法人番号）を持ちます。2017 年度以降です。
 
   - 複数の事業者が落札する案件があるため、procurement_item_no は一意ではありません
   - 個人事業主は corporate_number が NULL で、オープンカウンタ（少額）の個人事業主は含みません
-keywords:
+topics:
   - 調達ポータル
   - 政府調達
   - 落札実績
   - 入札
   - 法人番号
 sources:
-  - path: https://www.p-portal.go.jp/pps-web-biz/UAB02/OAB0201
-fields:
+  - OAB0201
+columns:
   - name: procurement_item_no
     title: 調達案件番号
   - name: procurement_item_name
@@ -38,4 +37,4 @@ fields:
   - name: corporate_number
     title: 法人番号
     description: 落札事業者の法人番号（13 桁）。個人事業主などは NULL
-    annotations: { queria: { semantic: { role: entity, name: corporate_number } } }
+    entity: corporate_number
